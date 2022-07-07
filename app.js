@@ -50,14 +50,19 @@ app.get("/parents", function (request, response) {
 app.get("/contact", function (request, response) {
     response.render("contact");
 });
-app.get("/addcat", function (request, response){
-    response.render("addcat");
-})
+app.get("/addcat", function (request, response) {
+    connection.query("SELECT * FROM catlist", function (error, results){
+        if(error) throw error;
+        response.render("addcat", { cats: results});
+    })
+});
 
 
 app.post("/addcat", function (request, response){
     let sampleFile;
     let uploadFile;
+
+    console.log(request.body)
 
     if(!request.files || Object.keys(request.files).length === 0){
         return response.status(400).send("No files were uploaded")
@@ -70,14 +75,28 @@ app.post("/addcat", function (request, response){
     sampleFile.mv(uploadFile, function(error){
         if(error) return response.status(500).send(error)
 
-        //response.send("File uploaded!");
-        connection.query('UPDATE catlist SET image = ? WHERE id ="1"',[sampleFile.name],(err, rows) =>{
-            response.redirect('/cats')
-        })
-
-    })
-
-})
+        connection.query("INSERT INTO catlist SET ?",
+        {
+            name: request.body.name,
+            image: sampleFile.name,
+            gender: request.body.gender,
+            age: request.body.age,
+            color: request.body.color,
+            price: request.body.price,
+            status: parseInt(request.body.status),
+        },
+         (error, rows) => {
+            response.redirect('/addcat')
+        });
+    });
+});
+app.post("/deletecat", function (request, response){
+    console.log(request.body);
+    let id = parseInt(request.body.id);
+    connection.query("DELETE FROM catlist WHERE id = ?", [id], (error,rows) =>{
+        response.redirect('/addcat')
+    });
+});
 
 
 app.listen(3000, function(){
