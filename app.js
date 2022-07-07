@@ -32,7 +32,18 @@ app.set("view engine", "ejs");
 
 app.get("/", function (request, response) {
     response.render("index");
-    
+});
+app.get("/aboutus", function (request, response) {
+    response.render("aboutus");
+});
+app.get("/cats", function (request, response) {
+    response.render("catlist");
+});
+app.get("/parents", function (request, response) {
+    response.render("sirdam");
+});
+app.get("/contact", function (request, response) {
+    response.render("contact");
 });
 
 app.listen(3000, function(){
