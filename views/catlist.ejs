@@ -76,7 +76,11 @@
           <% for(var c of cats) { %>
           <div class="col">
             <div class="card">
-                <img src="./images/catlist/cat1.png" class="card-img-top" alt="...">
+                <% if(c.image) {%>
+                  <img src="./images/catlist/<%=c.image%>" class="card-img-top" alt="...">
+                <% } else {%>
+                  <img src="./images/catlist/cat1.png" class="card-img-top" alt="...">
+                <% } %>
                 <div class="card-body">
                   <h4 class="card-title"><B><%=c.name%></B>
                     <% if (c.gender.toLowerCase() === "male") {%>

@@ -4,6 +4,7 @@ var session = require("express-session");
 var bodyParser = require("body-parser");
 var path = require("path");
 const cors = require("cors");
+const fileUpload = require("express-fileupload");
 
 const { request } = require("http");
 
@@ -24,6 +25,7 @@ var app = express();
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(fileUpload());
 
 const publicDirectory = path.join(__dirname + "/css");
 app.use(express.static(publicDirectory));
@@ -48,6 +50,35 @@ app.get("/parents", function (request, response) {
 app.get("/contact", function (request, response) {
     response.render("contact");
 });
+app.get("/addcat", function (request, response){
+    response.render("addcat");
+})
+
+
+app.post("/addcat", function (request, response){
+    let sampleFile;
+    let uploadFile;
+
+    if(!request.files || Object.keys(request.files).length === 0){
+        return response.status(400).send("No files were uploaded")
+    }
+    
+    sampleFile = request.files.sampleFile;
+    uploadFile = __dirname + '/css/images/catlist/' + sampleFile.name
+    console.log(sampleFile)
+
+    sampleFile.mv(uploadFile, function(error){
+        if(error) return response.status(500).send(error)
+
+        //response.send("File uploaded!");
+        connection.query('UPDATE catlist SET image = ? WHERE id ="1"',[sampleFile.name],(err, rows) =>{
+            response.redirect('/cats')
+        })
+
+    })
+
+})
+
 
 app.listen(3000, function(){
     console.log("Listening at Port 3000")
