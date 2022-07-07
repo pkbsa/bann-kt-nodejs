@@ -1,0 +1,91 @@
+/* Universal */
+body{
+    font-family: 'Kanit', sans-serif;
+}
+.row-nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+nav a{
+    padding-left: 10px;
+    padding-right: 30px;
+    text-decoration: none;
+    color : black;
+}
+footer{
+    display: flex;
+    justify-content: center;
+    background-color: #fff188;
+    height: 5vh;
+    color: rgb(48, 46, 46);
+}
+.title{
+    font-family: 'Varela Round', sans-serif;
+    font-size: 4rem;
+    position: absolute;
+    z-index: 2;
+    padding-top: 5vw;
+    font-weight: 500;
+}
+
+.main-row{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.main-row h3{
+    font-weight: 600;
+}
+.row{
+    margin-bottom: 5vw;
+}
+.col-sm {
+    background-color: #f6efdc;
+    margin-left: 4vw;
+    margin-right: 4vw;
+    text-align: center;
+    margin-top: 2vw;
+    box-shadow: 13px 8px 8px #dbd2b4;
+    border-radius: 30px;
+}
+.col-sm i{
+    width: 30px;
+    height: 30px;
+    position: relative;
+    padding-top: 70px;
+    padding-bottom: 30px;
+    color: #efb057;
+}
+.col-sm p{
+    padding-bottom: 30px;
+}
+p.call{
+    padding-top: 5px;
+    font-size: 1.2rem;
+}
+p.email{
+    padding-top: 8px;
+    font-size: 1.2rem;
+}
+h2{
+    font-weight: bold;
+}
+
+.new-row img{
+    height: 50px;
+    width: 50px;
+    margin: 0 20px 0px 20px;
+}
+.new-row{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+.new-row h4{
+    opacity: 0.5;
+}
+.link{
+    margin-bottom: 50px;
+}
