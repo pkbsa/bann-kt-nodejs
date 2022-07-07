@@ -72,6 +72,8 @@
 
     <div class="container">
         <div class="row d-flex flex-wrap">
+
+          <% for(var c of cats) { %>
           <div class="col">
             <div class="card">
                 <img src="./images/catlist/cat1.png" class="card-img-top" alt="...">
@@ -83,39 +85,7 @@
                 </div>
               </div>
           </div>
-          <div class="col">
-            <div class="card">
-                <img src="./images/catlist/cat2.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h4 class="card-title"><B>British Short Hair</B>  <i class="fa-solid fa-mars male"></i></i></h4>
-                  <p class="card-text">Age : 12 Weeks<br> Color: lilac (c)<br><b>฿ -</b></p>
-                  <button class="reserved">ติดจอง</button>
-                  <button class="notready">Not Available</button>
-                </div>
-              </div>
-          </div>
-          <div class="col">
-            <div class="card">
-                <img src="./images/catlist/cat3.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h4 class="card-title"><B>British Short Hair</B>  <i class="fa-solid fa-venus female"></i></i></h4>
-                  <p class="card-text">Age : 5 Months<br> Color: w61<br><b>฿ -</b></p>
-                  <button class="reserved">ติดจอง</button>
-                  <button class="notready">Not Available</button>
-                </div>
-              </div>
-          </div>
-          <div class="col">
-            <div class="card">
-                <img src="./images/catlist/cat4.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h4 class="card-title"><B>British Short Hair</B>  <i class="fa-solid fa-venus female"></i></i></h4>
-                  <p class="card-text">Age : 12 Weeks<br> Color: lilac (c)<br><b>฿ 65,000</b></p>
-                  <button class="ready">พร้อมย้ายบ้าน</button>
-                  <button>Available</button>
-                </div>
-              </div>
-          </div>
+          <% } %>
           
           
         </div>

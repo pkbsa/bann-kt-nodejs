@@ -37,7 +37,10 @@ app.get("/aboutus", function (request, response) {
     response.render("aboutus");
 });
 app.get("/cats", function (request, response) {
-    response.render("catlist");
+    connection.query("SELECT * FROM catlist", function (error, results){
+        if(error) throw error;
+        response.render("catlist", { cats: results});
+    })
 });
 app.get("/parents", function (request, response) {
     response.render("sirdam");
