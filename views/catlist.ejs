@@ -78,15 +78,25 @@
             <div class="card">
                 <img src="./images/catlist/cat1.png" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h4 class="card-title"><B>British Short Hair</B>  <i class="fa-solid fa-mars male" ></i></h4>
-                  <p class="card-text">Age : 12 Weeks<br> Color: lilac (c)<br><b>฿ 50,000</b></p>
-                  <button class="ready">พร้อมย้ายบ้าน</button>
-                  <button>Available</button>
+                  <h4 class="card-title"><B><%=c.name%></B>
+                    <% if (c.gender.toLowerCase() === "male") {%>
+                      <i class="fa-solid fa-mars male" ></i>
+                    <% } else { %>
+                      <i class="fa-solid fa-venus female"></i>
+                    <% } %>
+                  </h4>
+                  <p class="card-text">Age : <%=c.age%><br> Color: <%=c.color%><br><b>฿ <%=c.price%></b></p>
+                  <% if (c.status === 0) {%>
+                    <button class="reserved">ติดจอง</button>
+                    <button class="notready">Not Available</button>
+                  <% } else { %>
+                    <button class="ready">พร้อมย้ายบ้าน</button>
+                    <button>Available</button>
+                  <% } %>
                 </div>
               </div>
           </div>
           <% } %>
-          
           
         </div>
       </div>
