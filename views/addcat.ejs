@@ -123,7 +123,7 @@
           </div>
         </form>
       </div>
-      <div class="row d-flex flex-wrap">
+      <div class="row d-flex align-content-start flex-wrap">
         <% for(var c of cats) { %>
         <div class="col">
           <div class="card">
@@ -167,7 +167,10 @@
           </form>
         </div>
         <% } %>
-
+        <% for (i=0;i<4-(cats.length%4);i++) {%>
+          <div class="col">
+          </div>
+        <% } %>
         
       </div>
     </div>
