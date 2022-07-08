@@ -64,7 +64,7 @@
             <form action="auth_login" method="post">
                 <label>Username</label><br>
                 
-                <input type="text" name="username" value="<%=message%>"><br>
+                <input type="text" name="username"><br>
                 
                
                 <label >Password</label><br>
@@ -73,9 +73,15 @@
                
                 <button type="submit">Log In</button>
             </form>
+            <%if (message) {%>
+              <div class="alert alert-danger" role="alert">
+                <%=message %>
+              </div>
+            <% } %>
             <p id="term">* By Logging in, you agree to our Terms of Use and to receive<br>
             Our emails & updates and acknowledge that you read our Privacy Policy.</p>
         </div>
+        
     </body>
     <script
       src="https://kit.fontawesome.com/100c767ee6.js"
