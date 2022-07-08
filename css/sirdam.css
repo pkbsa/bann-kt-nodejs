@@ -31,16 +31,20 @@ footer{
 
 .card img{
     border-radius: 10px;
-    width: 100%;
+    width: 300px;
 }
 .card {
-    width: 80%;
+    width: 300px;
     background-color: #fff188;
     pointer-events: none;
     border-radius: 30px;
     overflow: hidden;
     margin-bottom: 25px;
     margin-top: 50px;
+    margin: 50px 10px 25px 10px;
+    padding: 0;
+    border: solid 0;
+    text-align: center;
 }
 
 .card-body{
@@ -55,4 +59,11 @@ footer{
     flex-direction: column;
     text-align: center;
     align-items: center;
+}
+.row{
+    justify-content: center;
+}
+
+.hide{
+    height: 0;
 }

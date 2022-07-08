@@ -45,12 +45,15 @@ app.get("/cats", function (request, response) {
     })
 });
 app.get("/parents", function (request, response) {
-    response.render("sirdam");
+    connection.query("SELECT * from parent", function (error, results){
+        if(error) throw error;
+        response.render("sirdam", { cats: results});
+    })
 });
 app.get("/contact", function (request, response) {
     response.render("contact");
 });
-app.get("/addcat", function (request, response) {
+app.get("/admin", function (request, response) {
     connection.query("SELECT * FROM catlist", function (error, results){
         if(error) throw error;
         response.render("addcat", { cats: results});
