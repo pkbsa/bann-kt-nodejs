@@ -141,3 +141,8 @@ input[type=text]{
     width: 300px;
     overflow: hidden;
 }
+
+.hide{
+    height: 0;
+    border: 0px;
+}

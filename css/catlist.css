@@ -81,3 +81,7 @@ button.reserved{
     margin-bottom: 25px;
     margin-top: 50px;
 }
+.hide{
+    height: 0;
+    border: 0px;
+}
