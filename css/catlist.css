@@ -39,7 +39,7 @@ footer{
     background-color: #fff188;
     pointer-events: none;
     border-radius: 30px;
-
+    width: 100%;
 }
 .card-body{
     background-color: #f6efdc;
@@ -80,6 +80,7 @@ button.reserved{
 .col {
     margin-bottom: 25px;
     margin-top: 50px;
+    height: 100%;
 }
 .hide{
     height: 0;

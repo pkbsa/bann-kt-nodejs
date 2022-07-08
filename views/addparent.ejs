@@ -16,7 +16,7 @@
       rel="stylesheet"
     />
 
-    <link href="addcat.css" rel="stylesheet" />
+    <link href="addparent.css" rel="stylesheet" />
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-light">
@@ -39,10 +39,10 @@
               <a class="nav-link" href="./">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="./admin">เพิ่มแมว</a>
+              <a class="nav-link" href="./admin">เพิ่มแมว</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./admin-parents">เพิ่มพ่อแม่</a>
+              <a class="nav-link active" href="./admin-parents">เพิ่มพ่อแม่</a>
             </li>
           </ul>
           <div class="d-flex">
@@ -70,9 +70,9 @@
 
     <div class="container">
       <div class="container-1">
-        <h1>เพิ่มแมว  (<a href="./cats">Go</a>)</h1>
-
-        <form action="/addcat" method="POST" enctype="multipart/form-data">
+        <h1>เพิ่ม พ่อ/แม่ แมว  (<a href="./parents">Go</a>)</h1>
+      
+        <form action="/addcatparent" method="POST" enctype="multipart/form-data">
           <div class="row">
             <div class="col">
               <div class="image-preview" id="imagePreview">
@@ -90,24 +90,15 @@
             <div class="col">
               <div class="col-new2">
                 <div class="inp">
-                    <label for="name">Breed :</label><Br />
+                    <label for="name">Name :</label><Br />
                     <input type="text" id="name" name="name" required/><Br />
-                    <label for="name">Age :</label><Br />
-                    <input type="text" id="age" name="age" required/><Br />
-                    <label for="name">Color :</label><Br />
-                    <input type="text" id="color" name="color" required/><Br />
-                    <label for="name" >Price :</label><Br />
-                    <input type="text" id="price" name="price" required/><Br />
-                    <label for="gender">Gender :</label><Br />
+            
+                   
                     <input type="radio" id="male" name="gender" value="male" required/>
-                    <label for="css">Male</label>
+                    <label for="css">Sir</label>
                     <input type="radio" id="female" name="gender" value="female" />
-                    <label for="html">Female</label><Br>
-                    <label for="status" id="status">Status :</label><Br />
-                    <input type="radio" id="available" name="status" value=1 required />
-                    <label for="available">ว่าง</label>
-                    <input type="radio" id="notavalible" name="status" value=0 />
-                    <label for="notavalible">ติดจอง</label><Br>
+                    <label for="html">Dam</label><Br>
+                    
                 </div>
               </div>
             </div>
@@ -118,57 +109,71 @@
         </form>
       </div>
       <div class="row d-flex align-content-start flex-wrap">
+        <% var countallmale = 0 %>
+        <% var countmale = 0 %>
         <% for(var c of cats) { %>
-        <div class="col">
-          <div class="card">
-            <% if(c.image) {%>
-            <img
-              src="./images/catlist/<%=c.image%>"
-              class="card-img-top"
-              alt="..."
-            />
-            <% } else {%>
-            <img
-              src="./images/catlist/nopicture.png"
-              class="card-img-top"
-              alt="..."
-            />
-            <% } %>
-            <div class="card-body">
-              <h4 class="card-title">
-                <B><%=c.name%></B>
-                <% if (c.gender.toLowerCase() === "male") {%>
-                <i class="fa-solid fa-mars male"></i>
-                <% } else { %>
-                <i class="fa-solid fa-venus female"></i>
-                <% } %>
-              </h4>
-              <p class="card-text">
-                Age : <%=c.age%><br />
-                Color: <%=c.color%><br /><b>฿ <%=c.price%></b>
-              </p>
-              <% if (c.status === 0) {%>
-              <button class="reserved">ติดจอง</button>
-              <button class="notready">Not Available</button>
-              <% } else { %>
-              <button class="ready">พร้อมย้ายบ้าน</button>
-              <button>Available</button>
-              <% } %>
-            </div>
-          </div>
-          <form action="/deletecat" method="POST">
-            <button class="delete" name="id" value="<%=c.id%>" type="submit">Delete</button>
-          </form>
-        </div>
+          <%if (c.gender === "male") {%>
+            <% countallmale = countallmale + 1 %>
+          <% } %>
         <% } %>
-        <% for (i=0;i<4-(cats.length%4);i++) {%>
-          <div class="col hide">
-            <div class="card hide">
-
-            </div>
+        <h1>Sir</h1>
+        
+        <% for(var c of cats) { %>
+          <%if (c.gender === "male") {%>
+          <div class="col">
+              <div class="card">
+                <img
+                  src="./images/sirdam/<%=c.image%>"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <B><%=c.name%></B>
+                  </h4>
+                </div>
+              </div>
+            <form action="/deleteparent" method="POST">
+              <button class="delete" name="id" value="<%=c.id%>" type="submit">Delete</button>
+            </form>
+            
           </div>
+          <% } %>
+        <% } %>
+        <% for(i=0 ; i < 5-(countallmale%5); i++) {%>
+          <div class="col hide"><div class="card"></div></div>
         <% } %>
         
+        <h1 id="dam">Dam</h1>
+        
+        <% var countallfemale = cats.length-countallmale %>
+  
+        <% for(var c of cats) { %>
+          <%if (c.gender === "female") {%>
+            <div class="col">
+                <div class="card">
+                  <img
+                    src="./images/sirdam/<%=c.image%>"
+                    class="card-img-top"
+                    alt="..."
+                  />
+                  <div class="card-body">
+                    <h4 class="card-title">
+                      <B><%=c.name%></B>
+                    </h4>
+                  </div>
+                </div>
+             
+              <form action="/deleteparent" method="POST">
+                <button class="delete" name="id" value="<%=c.id%>" type="submit">Delete</button>
+              </form>
+            </div>
+          <% } %>
+        <% } %>
+        
+        <% for(i=0 ; i< 5-(countallfemale%5) ; i++) { %>
+          <div class="col hide"><div class="card"></div></div>
+        <% } %>
       </div>
     </div>
     <script>

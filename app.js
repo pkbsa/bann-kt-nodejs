@@ -59,7 +59,12 @@ app.get("/admin", function (request, response) {
         response.render("addcat", { cats: results});
     })
 });
-
+app.get("/admin-parents", function (request, response) {
+    connection.query("SELECT * FROM parent", function (error, results){
+        if(error) throw error;
+        response.render("addparent", { cats: results});
+    })
+});
 
 app.post("/addcat", function (request, response){
     let sampleFile;
@@ -89,15 +94,52 @@ app.post("/addcat", function (request, response){
             status: parseInt(request.body.status),
         },
          (error, rows) => {
-            response.redirect('/addcat')
+            response.redirect('/admin')
         });
     });
 });
+
+app.post("/addcatparent", function(request, response){
+    let sampleFile;
+    let uploadFile;
+
+    console.log(request.body)
+
+    if(!request.files || Object.keys(request.files).length === 0){
+        return response.status(400).send("No files were uploaded")
+    }
+
+    sampleFile = request.files.sampleFile;
+    uploadFile = __dirname + '/css/images/sirdam/' + sampleFile.name
+    console.log(sampleFile)
+
+    sampleFile.mv(uploadFile, function(error){
+        if(error) return response.status(500).send(error)
+
+        connection.query("INSERT INTO parent SET ?",
+        {
+            name: request.body.name,
+            image: sampleFile.name,
+            gender: request.body.gender,
+        },
+         (error, rows) => {
+            response.redirect('/admin-parents')
+        });
+    });
+})
+
 app.post("/deletecat", function (request, response){
     console.log(request.body);
     let id = parseInt(request.body.id);
     connection.query("DELETE FROM catlist WHERE id = ?", [id], (error,rows) =>{
-        response.redirect('/addcat')
+        response.redirect('/admin')
+    });
+});
+app.post("/deleteparent", function (request, response){
+    console.log(request.body);
+    let id = parseInt(request.body.id);
+    connection.query("DELETE FROM parent WHERE id = ?", [id], (error,rows) =>{
+        response.redirect('/admin-parents')
     });
 });
 
