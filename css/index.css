@@ -125,3 +125,7 @@ a{
 .container4 h1{
     margin-bottom: 2vw;
 }
+#foot{
+    text-decoration: underline;
+    color: blue;
+}

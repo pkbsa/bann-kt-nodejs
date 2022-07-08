@@ -7,6 +7,7 @@ const cors = require("cors");
 const fileUpload = require("express-fileupload");
 
 const { request } = require("http");
+const { response } = require("express");
 
 var connection = mysql.createConnection({
     host: "localhost",
@@ -21,6 +22,15 @@ connection.connect((error) => {
 });
 
 var app = express();
+
+app.use(
+    session({
+      secret: "secret",
+      resave: true,
+      saveUninitialized: true,
+    })
+  );
+  
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -53,17 +63,32 @@ app.get("/parents", function (request, response) {
 app.get("/contact", function (request, response) {
     response.render("contact");
 });
-app.get("/admin", function (request, response) {
-    connection.query("SELECT * FROM catlist", function (error, results){
-        if(error) throw error;
-        response.render("addcat", { cats: results});
-    })
+app.get("/admin", function (request, response){
+    if (request.session.loggedin) {
+        response.redirect("/admin-cats")
+    }else{
+        response.render("login", { message: ""});
+    }
+});
+app.get("/admin-cats", function (request, response) {
+    if (request.session.loggedin) {
+        connection.query("SELECT * FROM catlist", function (error, results){
+            if(error) throw error;
+            response.render("addcat", { cats: results});
+        })
+    }else{
+        response.render("login", { message: ""});
+    }
 });
 app.get("/admin-parents", function (request, response) {
-    connection.query("SELECT * FROM parent", function (error, results){
-        if(error) throw error;
-        response.render("addparent", { cats: results});
-    })
+    if (request.session.loggedin) {
+        connection.query("SELECT * FROM parent", function (error, results){
+            if(error) throw error;
+            response.render("addparent", { cats: results});
+        })
+    }else{
+        response.render("login", { message: ""});
+    }
 });
 
 app.post("/addcat", function (request, response){
@@ -143,6 +168,40 @@ app.post("/deleteparent", function (request, response){
     });
 });
 
+app.post("/auth_login", async (request, response) =>{
+    var username = request.body.username;
+    var password = request.body.password;
+    
+    if(username && password){
+        connection.query("SELECT * FROM userlist WHERE username = ?",[username],async (error ,results, fields) => {
+            if (results.length > 0){
+                if (password === results[0].password) {
+                    request.session.loggedin = true;
+                    response.redirect('/admin-cats')
+                } else{
+                    response.status(401).render("login",{
+                        message: "Password Incorrect",
+                    })
+                }
+            }else{
+                response.status(401).render("login",{
+                    message: "User is not exist",
+                })
+            }
+        });
+    } else {
+        response.status(401).render("login",{
+            message: "Username and Password cannot be Blank",
+        })  
+    }
+})
+
+app.get("/logout", function (request, response) {
+    console.log("User [" + request.session.username + "] logged out")
+    request.session.loggedin = false;
+    response.redirect("/");
+    response.end();
+});
 
 app.listen(3001, function(){
     console.log("Listening at Port 3001")

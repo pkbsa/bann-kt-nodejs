@@ -1,6 +1,7 @@
 /* Universal */
 body{
     font-family: 'Kanit', sans-serif;
+    background-color: white;
 }
 .row-nav{
     display: flex;
