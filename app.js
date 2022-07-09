@@ -11,9 +11,9 @@ const { response } = require("express");
 
 var connection = mysql.createConnection({
     host: "localhost",
-    user: "bannkcay_siranuta13",
-    password: "Jindarat1",
-    database: "bannkcay_bann-kt",
+    user: "root",
+    password: "",
+    database: "bann-kt",
 });
   
 connection.connect((error) => {
@@ -168,6 +168,20 @@ app.post("/deleteparent", function (request, response){
     });
 });
 
+app.post("/changestatus",function (request, response){
+    console.log(request.body);
+    let id = parseInt(request.body.id);
+    let status = parseInt(request.body.status);
+    connection.query("UPDATE catlist SET ? WHERE id = ?",[
+        {
+            status: status,
+        },
+        id,
+    ], (error,rows) => {
+        response.redirect('/admin')
+    })
+});
+
 app.post("/auth_login", async (request, response) =>{
     var username = request.body.username;
     var password = request.body.password;
@@ -203,6 +217,6 @@ app.get("/logout", function (request, response) {
     response.end();
 });
 
-app.listen(3001, function(){
-    console.log("Listening at Port 3001")
+app.listen(3000, function(){
+    console.log("Listening at Port 3000")
   });

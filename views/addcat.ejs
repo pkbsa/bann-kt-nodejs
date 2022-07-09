@@ -162,6 +162,17 @@
               <% } %>
             </div>
           </div>
+          <form action="/changestatus" method="POST">
+            <div class="update">
+              <label>Status : </label>
+              <select name="status" id="status" required>
+                <option value="" disabled selected hidden></option>
+                <option value=1>Available</option>
+                <option value=0>Not Available</option>
+              </select>
+              <button name="id" value="<%=c.id%>" type="submit">เปลี่ยน</button>
+            </div>
+          </form>
           <form action="/deletecat" method="POST">
             <button class="delete" name="id" value="<%=c.id%>" type="submit">Delete</button>
           </form>

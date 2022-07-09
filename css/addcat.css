@@ -40,7 +40,10 @@ footer{
     width: 300px;
     background-color: #fff188;
     pointer-events: none;
-    border-radius: 30px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border: solid 1px rgba(0, 0, 0, 0.176); 
+    border-bottom: 0px;
 }
 
 .card-body{
@@ -115,7 +118,7 @@ input[type=text]{
     margin-bottom: 10px;
     width: 100%;
 }
-select{
+.container-1 select{
     width: 100%;
     margin-bottom: 10px;
 }
@@ -154,4 +157,18 @@ select{
 }
 a{
     text-decoration: none;
+}
+.update{
+    width: 300px;
+    background-color: #f6efdc;
+    border: 0px;
+    border: solid 1px rgba(0, 0, 0, 0.176);
+    border-top: 0px;
+    border-right: 0px;
+    padding: 5px 16px 10px 16px;
+}
+.update button{
+    margin: 0px 15px 0px 15px;
+    border-radius: 3px;
+    border: solid 0.5px;
 }
