@@ -36,3 +36,6 @@
 
 <h4>Admin addparent</h4>
 <img src="./images/13-parent.png">
+
+<h4>Admin addtips</h4>
+<img src="./images/14-tips.png">
