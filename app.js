@@ -11,9 +11,9 @@ const { response } = require("express");
 
 var connection = mysql.createConnection({
     host: "localhost",
-    user: "root",
-    password: "",
-    database: "bann-kt",
+    user: "bannkcay_siranuta13",
+    password: "Jindarat1",
+    database: "bannkcay_bann-kt",
 });
   
 connection.connect((error) => {
