@@ -101,6 +101,7 @@ textarea{
     height: 70%;
     width: auto;
     object-fit: cover;
+    margin-top: 20px;
 }
 .pic{
     display: flex;
@@ -120,3 +121,4 @@ textarea{
 .edit{
     background-color: rgba(94, 216, 216, 0.719);
 }
+

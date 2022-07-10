@@ -125,22 +125,42 @@
                   </div>
                 <% } %>
                 <div class="flex">
-                  <button class="button edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Edit</button><button class="button del">DELETE</button>
+                  <button class="button edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%=t.id%>">Edit</button>
+                  <form action="/deletetip" method="POST">
+                    <button class="button del" name="id" value="<%=t.id%>" type="submit">DELETE</button>
+                  </form>
                 </div>
-                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal fade" id="staticBackdrop<%=t.id%>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
                         <h5 class="modal-title" id="staticBackdropLabel">แก้ไขข้อมูล</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
-                      <div class="modal-body">
-                        ...
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Understood</button>
-                      </div>
+                      <form action="/updatetips" method="post" enctype="multipart/form-data">
+                        <div class="modal-body">
+                          <div class="col1">
+                            <label>Title :</label>
+                            <input type="text" name="title" value="<%=t.title%>"required>
+                            <label>ข้อความ :</label>
+                            <TextArea name='text' rows="10" width="100%" required><%=t.text%></TextArea>
+                          </div>
+                    
+                          <div class="col">
+                            <p style="color: red;">*หากไม่เปลี่ยนรูปไม่ต้องเลือก</p>
+                            <input
+                              type="file"
+                              name="sampleFile"
+                              id="sampleFile"
+                              accept="image/*"
+                            /><br />
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <button type="submit" class="btn btn-primary" name="id" value="<%=t.id%>">Confirm</button>
+                        </div>
+                      </form>
                     </div>
                   </div>
                 </div>

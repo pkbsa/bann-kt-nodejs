@@ -141,6 +141,47 @@ app.post("/addtips", function (request, response){
     }
 });
 
+app.post("/updatetips", function (request,response){
+    console.log(request.body);
+    let id = request.body.id;
+    
+    if(!request.files || Object.keys(request.files).length === 0){
+        console.log("no file founded");
+        connection.query("UPDATE tips SET ? WHERE id = ?",
+        [   
+            {
+                title : request.body.title,
+                text : request.body.text, 
+            },
+            parseInt(id),
+        ],
+        (error, rows) => {
+            response.redirect('/admin-index')
+        });
+    }else{
+        sampleFile = request.files.sampleFile;
+        uploadFile = __dirname + '/css/images/index/slide/' + sampleFile.name
+        console.log(sampleFile)
+
+        sampleFile.mv(uploadFile, function(error){
+            if(error) return response.status(500).send(error)
+
+            connection.query("UPDATE tips SET ? WHERE id = ?",
+            [   
+                {
+                    title : request.body.title,
+                    text : request.body.text, 
+                    image : sampleFile.name,
+                },
+                parseInt(id),
+            ],
+            (error, rows) => {
+                response.redirect('/admin-index')
+            });
+        });
+    }
+});
+
 app.post("/addcat", function (request, response){
     let sampleFile;
     let uploadFile;
@@ -203,6 +244,13 @@ app.post("/addcatparent", function(request, response){
     });
 })
 
+app.post("/deletetip", function (request, response){
+    console.log(request.body);
+    let id = parseInt(request.body.id);
+    connection.query("DELETE FROM tips WHERE id = ?", [id], (error,rows) =>{
+        response.redirect('/admin-index')
+    });
+});
 app.post("/deletecat", function (request, response){
     console.log(request.body);
     let id = parseInt(request.body.id);
