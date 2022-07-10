@@ -9,3 +9,8 @@
 ```
 
 <p>you can enter the website admin panel by clicking at the hyperlink at the footer</p>
+
+<p> Here are how all my page look likes </p>
+
+<h4>Homepage</h4>
+<img src="./images/1home.png">
