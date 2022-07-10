@@ -14,7 +14,7 @@
 <p> Here are how all my page look likes </p>
 
 <h4>Homepage</h4>
-<img src="./images/1home.png">
+<img src="./images/1home1.png">
 
 <h4>About Us</h4>
 <img src="./images/2aboutus.png">
