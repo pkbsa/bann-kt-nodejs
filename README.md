@@ -7,6 +7,7 @@
      npm start
      
 ```
+<h5>Don't Forget to import the database to match your localhost</h5>
 
 <p>you can enter the website admin panel by clicking at the hyperlink at the footer</p>
 
