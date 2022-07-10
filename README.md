@@ -14,3 +14,24 @@
 
 <h4>Homepage</h4>
 <img src="./images/1home.png">
+
+<h4>About Us</h4>
+<img src="./images/2aboutus.png">
+
+<h4>Availble</h4>
+<img src="./images/3catlist.png">
+
+<h4>Sir / Dam</h4>
+<img src="./images/4sir-dam.png">
+
+<h4>Contact</h4>
+<img src="./images/5-contact.png">
+
+<h4>admin login</h4>
+<img src="./images/11-login.png">
+
+<h4>Admin addcat</h4>
+<img src="./images/12-cat.png">
+
+<h4>Admin addparent</h4>
+<img src="./images/13-parent.png">
