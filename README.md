@@ -1,6 +1,9 @@
 <h1>Cattery Website That I Have Created Recently</h1>
 
 <p>to run this website : </p>
-<p>` npm i install
+```
+     npm i install
      npm start`
-</p>
+```
+
+<p>you can enter the website admin panel by clicking at the hyperlink at the footer</p>
