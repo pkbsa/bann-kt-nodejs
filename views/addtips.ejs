@@ -2,10 +2,6 @@
 <html>
   <head>
     <title>Bann K&T Cattery</title>
-    <meta
-      name="google-site-verification"
-      content="N194A-GthKR104nribupXpkKuQJQC9YrBZ6PxlvpV44"
-    />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -20,7 +16,7 @@
       rel="stylesheet"
     />
 
-    <link href="index.css" rel="stylesheet" />
+    <link href="addtips.css" rel="stylesheet" />
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-light">
@@ -40,125 +36,70 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="./">Home</a>
+              <a class="nav-link" href="./">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./aboutus">About Us</a>
+              <a class="nav-link active" href="./admin">เพิ่มแมว</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./cats">Available Cat</a>
+              <a class="nav-link" href="./admin-parents">เพิ่มพ่อแม่</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./parents">Sir/Dam</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./contact">Contact</a>
+              <a class="nav-link" href="/logout">LOG OUT</a>
             </li>
           </ul>
           <div class="d-flex">
             <div class="row-nav">
               <i class="fa-brands fa-facebook fa-xl"></i>
               <a href="https://www.facebook.com/KwanRaweeCat">KwanRaweeCat</a>
-              <i class="fa-solid fa-ph2"></i>
+              <i class="fa-solid fa-phone"></i>
               <a href="tel:081-919-6931">081 919 6931</a>
             </div>
           </div>
         </div>
       </div>
     </nav>
+    <div class="d-flex justify-content-center">
+      <h1 class="title">Cat Dashboard</h1>
+    </div>
 
-    <div class="container1">
-      <div class="new-container">
-        <div class="text">
-          <h1>Bann K&T</h1>
-          <h1 id="cattery">Cattery</h1>
-          <h2>British Shorthair</h2>
-          <button onclick="location.href='./cats'">Available Cat</button>
-        </div>
-        <img src="./images/index/logo1.png" height="500vw" />
-      </div>
-
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path
-          fill="#fff188"
-          fill-opacity="1"
-          d="M0,192L34.3,170.7C68.6,149,137,107,206,101.3C274.3,96,343,128,411,154.7C480,181,549,203,617,202.7C685.7,203,754,181,823,165.3C891.4,149,960,139,1029,154.7C1097.1,171,1166,213,1234,218.7C1302.9,224,1371,192,1406,176L1440,160L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z"
-        ></path>
-      </svg>
-    </div>
-    <div class="container2">
-      <div class="container">
-        <div class="row align-items-center align-items-center">
-          <div class="col">
-            <div class="rec">
-              <a class="img" href="./aboutus">
-                <img
-                  src="./images/index/aboutus.png"
-                  height="200px"
-                  width="200px"
-                />
-              </a>
-            </div>
-            <a href="./aboutus">About Us</a>
-          </div>
-          <div class="col">
-            <div class="rec">
-              <a class="img" href="./cats">
-                <img
-                  src="./images/index/search.png"
-                  height="200px"
-                  width="200px"
-                />
-              </a>
-            </div>
-            <a href="./cats">Available Cat</a>
-          </div>
-          <div class="col">
-            <div class="rec">
-              <a class="img" href="./parents">
-                <img
-                  src="./images/index/father.png"
-                  height="200px"
-                  width="200px"
-                />
-              </a>
-            </div>
-            <a href="./parents">Sir/พ่อพันธุ์<br />Dam/แม่พันธุ์</a>
-          </div>
-          <div class="col">
-            <div class="rec">
-              <a class="img" href="./contact">
-                <img
-                  src="./images/index/contact.png"
-                  height="200px"
-                  width="200px"
-                />
-              </a>
-            </div>
-            <a href="./contact">Contact</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container3">
-      <div class="new-row">
-        <h2>บริติชช็อตแฮร์ Bann K&T Cattery</h2>
-      </div>
-      <div class="new-row">
-        <p>
-          " ส่งน้องแมวสุขภาพดีให้ครอบครัวใหม่ มีการตรวจสุขภาพ ตรวจโรค
-          และรับประกันสุขภาพให้ทุกตัว
-        </p>
-      </div>
-      <div class="new-row">
-        <p>
-          เจ้าของใหม่สามารถสอบถามเรื่องการดูแลและการเลี้ยงดูน้องแมวได้ตลอดเวลา "
-        </p>
-      </div>
-    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path
+        fill="#fff188"
+        fill-opacity="1"
+        d="M0,160L34.3,170.7C68.6,181,137,203,206,213.3C274.3,224,343,224,411,213.3C480,203,549,181,617,192C685.7,203,754,245,823,256C891.4,267,960,245,1029,229.3C1097.1,213,1166,203,1234,202.7C1302.9,203,1371,213,1406,218.7L1440,224L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z"
+      ></path>
+    </svg>
 
     <div class="container4">
-      <h1>เกร็ดความรู้</h1>
+      <div class="container-1">
+        <h1>เพิ่มเกร็ดความรู้  (<a href="./">Go</a>)</h1>
+        <form action="/addtips" method="POST" enctype="multipart/form-data">
+            <div class="col1">
+              <label>Title :</label>
+              <input type="text" name="title" required>
+              <label>ข้อความ :</label>
+              <TextArea name='text' rows="10" width="100%" required></TextArea>
+            </div>
+            <div class="col">
+              <div class="image-preview" id="imagePreview">
+                <img src="" alt="Image Preview" class="image-preview__image" />
+                <span class="image-preview__default-text">Image Preview</span>
+              </div>
+              <input
+                type="file"
+                name="sampleFile"
+                id="sampleFile"
+                accept="image/*"
+              /><br />
+            </div>
+
+          <div class="flex">
+            <input type="submit" class="btn btn-success">
+          </div>
+        </form>
+      </div>
+      <h1 id="margin">เกร็ดความรู้</h1>
       <div class="accordion" id="accordionPanelsStayOpenExample">
         <% for (var t of tips){ %>
           <div class="accordion-item">
@@ -183,12 +124,64 @@
                     <img id="pic" src="./images/index/slide/<%=t.image%>">
                   </div>
                 <% } %>
+                <div class="flex">
+                  <button class="button edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Edit</button><button class="button del">DELETE</button>
+                </div>
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">แก้ไขข้อมูล</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        ...
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Understood</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         <% } %>
       </div>
+
     </div>
+    <script>
+      const inpFile = document.getElementById("sampleFile");
+      const previewContainer = document.getElementById("imagePreview");
+      const previewImage = previewContainer.querySelector(
+        ".image-preview__image"
+      );
+      const previewDefaultText = previewContainer.querySelector(
+        ".image-preview__default-text"
+      );
+
+      inpFile.addEventListener("change", function () {
+        const file = this.files[0];
+
+        if (file) {
+          const reader = new FileReader();
+
+          previewDefaultText.style.display = "none";
+          previewImage.style.display = "block";
+
+          reader.addEventListener("load", function () {
+            previewImage.setAttribute("src", this.result);
+          });
+
+          reader.readAsDataURL(file);
+        } else {
+          previewDefaultText.style.display = null;
+          previewImage.style.display = null;
+          previewImage.setAttribute("src", "");
+        }
+      });
+    </script>
 
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
       <path
@@ -198,7 +191,7 @@
       ></path>
     </svg>
     <footer>
-      <p>© All rights reserved | <a id="foot" href="/admin">pkbsa</a></p>
+      <p>© All rights reserved | <a href="/admin">pkbsa</a></p>
     </footer>
 
     <script

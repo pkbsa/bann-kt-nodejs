@@ -43,7 +43,10 @@ app.use(express.static(publicDirectory));
 app.set("view engine", "ejs");
 
 app.get("/", function (request, response) {
-    response.render("index");
+    connection.query("SELECT * from tips", function (error, results){
+        if(error) throw error;
+        response.render("index", { tips: results});
+    })
 });
 app.get("/aboutus", function (request, response) {
     response.render("aboutus");
@@ -70,6 +73,16 @@ app.get("/admin", function (request, response){
         response.render("login", { message: ""});
     }
 });
+app.get("/admin-index", function (request, response) {
+    if (request.session.loggedin) {
+        connection.query("SELECT * FROM tips", function (error, results){
+            if(error) throw error;
+            response.render("addtips", { tips: results});
+        })
+    }else{
+        response.render("login", { message: ""});
+    }
+});
 app.get("/admin-cats", function (request, response) {
     if (request.session.loggedin) {
         connection.query("SELECT * FROM catlist", function (error, results){
@@ -88,6 +101,43 @@ app.get("/admin-parents", function (request, response) {
         })
     }else{
         response.render("login", { message: ""});
+    }
+});
+
+app.post("/addtips", function (request, response){
+    let sampleFile;
+    let uploadFile;
+
+    console.log(request.body)
+
+    if(!request.files || Object.keys(request.files).length === 0){
+        connection.query("INSERT INTO tips SET ?",
+        {
+            title : request.body.title,
+            text : request.body.text, 
+            image : null,
+        },
+        (error, rows) => {
+            response.redirect('/admin-index')
+        });
+    }else{
+        sampleFile = request.files.sampleFile;
+        uploadFile = __dirname + '/css/images/index/slide/' + sampleFile.name
+        console.log(sampleFile)
+
+        sampleFile.mv(uploadFile, function(error){
+            if(error) return response.status(500).send(error)
+
+            connection.query("INSERT INTO tips SET ?",
+            {
+                title : request.body.title,
+                text : request.body.text,
+                image : sampleFile.name, 
+            },
+            (error, rows) => {
+                response.redirect('/admin-index')
+            });
+        });
     }
 });
 
