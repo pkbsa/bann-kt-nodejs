@@ -11,9 +11,9 @@ const { response } = require("express");
 
 var connection = mysql.createConnection({
     host: "localhost",
-    user: "bannkcay_siranuta13",
-    password: "Jindarat1",
-    database: "bannkcay_bann-kt",
+    user: "root",
+    password: "",
+    database: "bann-kt",
 });
   
 connection.connect((error) => {
@@ -215,6 +215,55 @@ app.post("/addcat", function (request, response){
     });
 });
 
+app.post("/updatecats", function (request,response){
+    console.log(request.body);
+    let id = request.body.id;
+    
+    if(!request.files || Object.keys(request.files).length === 0){
+        console.log("no file founded");
+        connection.query("UPDATE catlist SET ? WHERE id = ?",
+        [   
+            {
+                name: request.body.name,
+                gender: request.body.gender,
+                age: request.body.age,
+                color: request.body.color,
+                price: request.body.price,
+                status: parseInt(request.body.status),
+            },
+            parseInt(id),
+        ],
+        (error, rows) => {
+            response.redirect('/admin-cats')
+        });
+    }else{
+        sampleFile = request.files.sampleFile;
+        uploadFile = __dirname + '/css/images/catlist/' + sampleFile.name
+        console.log(sampleFile)
+
+        sampleFile.mv(uploadFile, function(error){
+            if(error) return response.status(500).send(error)
+
+            connection.query("UPDATE catlist SET ? WHERE id = ?",
+            [   
+                {
+                    name: request.body.name,
+                    gender: request.body.gender,
+                    age: request.body.age,
+                    color: request.body.color,
+                    price: request.body.price,
+                    status: parseInt(request.body.status),
+                    image : sampleFile.name,
+                },
+                parseInt(id),
+            ],
+            (error, rows) => {
+                response.redirect('/admin-cats')
+            });
+        });
+    }
+});
+
 app.post("/addcatparent", function(request, response){
     let sampleFile;
     let uploadFile;
@@ -264,20 +313,6 @@ app.post("/deleteparent", function (request, response){
     connection.query("DELETE FROM parent WHERE id = ?", [id], (error,rows) =>{
         response.redirect('/admin-parents')
     });
-});
-
-app.post("/changestatus",function (request, response){
-    console.log(request.body);
-    let id = parseInt(request.body.id);
-    let status = parseInt(request.body.status);
-    connection.query("UPDATE catlist SET ? WHERE id = ?",[
-        {
-            status: status,
-        },
-        id,
-    ], (error,rows) => {
-        response.redirect('/admin')
-    })
 });
 
 app.post("/auth_login", async (request, response) =>{
