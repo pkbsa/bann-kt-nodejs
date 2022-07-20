@@ -66,6 +66,17 @@ app.get("/parents", function (request, response) {
 app.get("/contact", function (request, response) {
     response.render("contact");
 });
+app.get("/cats/:id", function (request, response) {
+    let cat_id = request.params.id;
+    if(!cat_id){
+        return response.status(400).send({error: true,message: "Please provide cat id."});
+    }
+    connection.query("SELECT * FROM catlist where id=?",cat_id, function(error,data,fields){
+        if(error) throw error;
+        response.render("content",{cats: data});
+    })
+
+});
 app.get("/admin", function (request, response){
     if (request.session.loggedin) {
         response.redirect("/admin-cats")

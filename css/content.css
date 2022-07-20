@@ -1,0 +1,51 @@
+/* Universal */
+body{
+    font-family: 'Kanit', sans-serif;
+}
+.row-nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+nav a{
+    padding-left: 10px;
+    padding-right: 30px;
+    text-decoration: none;
+    color : black;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    background-color: #fff188;
+    height: 5vh;
+    color: rgb(48, 46, 46);
+}
+
+.title{
+    font-family: 'Varela Round', sans-serif;
+    font-size: 5rem;
+    position: absolute;
+    z-index: 2;
+    padding-top: 5vw;
+    font-weight: 500;
+}
+.row{
+    text-align: center;
+}
+.col p{
+    font-size: 2rem;
+}
+img{
+    height: 600px;
+    width: 600px;
+}
+img.org{
+    height: 100px;
+    width: 400px;
+}
+.alert{
+    margin-top: 2vw;
+    background-color: #e9c0ba;
+    border-radius: 30px;
+}
