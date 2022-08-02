@@ -5,6 +5,7 @@ var bodyParser = require("body-parser");
 var path = require("path");
 const cors = require("cors");
 const fileUpload = require("express-fileupload");
+const querystring = require('querystring');
 
 const { request } = require("http");
 const { response } = require("express");
@@ -99,6 +100,17 @@ app.get("/admin-cats", function (request, response) {
         connection.query("SELECT * FROM catlist", function (error, results){
             if(error) throw error;
             response.render("addcat", { cats: results});
+        })
+    }else{
+        response.render("login", { message: ""});
+    }
+});
+app.get("/admin-content/:id", function (request, response) {
+    let cat_id = request.params.id;
+    if (request.session.loggedin) {
+        connection.query("SELECT * FROM catlist where id=?",cat_id, function (error, results){
+            if(error) throw error;
+            response.render("addcontent", { cats: results});
         })
     }else{
         response.render("login", { message: ""});
@@ -275,6 +287,32 @@ app.post("/updatecats", function (request,response){
     }
 });
 
+app.post("/addcatimg", function(request, response){
+    sampleFile = request.files.sampleFile;
+
+    if(!request.files || Object.keys(request.files).length === 0){
+        return response.status(400).send("No files were uploaded")
+    }
+    sampleFile = request.files.sampleFile;
+    uploadFile = __dirname + '/css/images/catlist/' + sampleFile.name
+    console.log(sampleFile)
+
+    sampleFile.mv(uploadFile, function(error){
+        if(error) return response.status(500).send(error)
+
+        connection.query("UPDATE catlist SET "+request.body.title+"= ? WHERE id = ?",
+        [
+        
+        sampleFile.name,
+    
+        request.body.id,
+        ],
+         (error, rows) => {
+            response.redirect('/admin-content/'+request.body.id)
+        });
+    });
+})
+
 app.post("/addcatparent", function(request, response){
     let sampleFile;
     let uploadFile;
@@ -318,6 +356,15 @@ app.post("/deletecat", function (request, response){
         response.redirect('/admin')
     });
 });
+app.post("/deleteimg", function(request, response){
+    connection.query("UPDATE catlist SET "+request.body.title+"= NULL WHERE id = ?",
+    [
+    request.body.id,
+    ],
+     (error, rows) => {
+        response.redirect('/admin-content/'+request.body.id)
+    });
+})
 app.post("/deleteparent", function (request, response){
     console.log(request.body);
     let id = parseInt(request.body.id);

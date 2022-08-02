@@ -129,6 +129,7 @@
       <div class="row d-flex align-content-start flex-wrap">
         <% for(var c of cats) { %>
         <div class="col">
+          <a href="/admin-content/<%=c.id%>">
           <div class="card">
             <% if(c.image) {%>
             <img
@@ -169,7 +170,7 @@
               <% } %>
             </div>
           </div>
-        
+          </a>
           <div class="update">
             <button name="id" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%=c.id%>">แก้ไขข้อมูล</button>
             <form action="/deletecat" method="POST">
