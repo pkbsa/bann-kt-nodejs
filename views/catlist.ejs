@@ -74,6 +74,7 @@
         <div class="row d-flex flex-wrap">
           <% for(var c of cats) { %>
           <div class="col">
+            <a href="/cats/<%=c.id%>">
             <div class="card">
                 <% if(c.image) {%>
                   <img src="./images/catlist/<%=c.image%>" class="card-img-top" alt="...">
@@ -102,6 +103,7 @@
                   <% } %>
                 </div>
               </div>
+            </a>
           </div>
           <% } %>
           
