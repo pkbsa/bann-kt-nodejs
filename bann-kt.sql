@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Aug 02, 2022 at 11:09 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Host: localhost
+-- Generation Time: Aug 04, 2022 at 09:18 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -35,19 +35,30 @@ CREATE TABLE `catlist` (
   `age` varchar(30) NOT NULL,
   `color` varchar(20) NOT NULL,
   `price` varchar(11) NOT NULL,
-  `status` int(11) NOT NULL
+  `status` int(11) NOT NULL,
+  `image2` varchar(500) DEFAULT NULL,
+  `image3` varchar(500) DEFAULT NULL,
+  `image4` varchar(500) DEFAULT NULL,
+  `image5` varchar(500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `catlist`
 --
 
-INSERT INTO `catlist` (`id`, `name`, `image`, `gender`, `age`, `color`, `price`, `status`) VALUES
-(13, 'British Short Hair', '290743800_591536999212016_592022761160925615_n.jpg', 'male', '24 June 2021', 'lilac (c)', '50,000', 1),
-(14, 'British Short Hair', 'cat2.png', 'male', '25 June 2021', 'lilac (c)', '-', 1),
-(15, 'British Short Hair', 'cat3.png', 'female', '5 Months', 'w61', '-', 0),
-(16, 'British Long Hair', 'cat4.png', 'female', '12 Weeks', 'lilac (c)', '65,000', 0),
-(33, 'British Short Hair', '150192677_862978257858210_2980609019445049152_n.jpg', 'male', '12 Weeks', 'ay11', '50000', 1);
+INSERT INTO `catlist` (`id`, `name`, `image`, `gender`, `age`, `color`, `price`, `status`, `image2`, `image3`, `image4`, `image5`) VALUES
+(39, 'British Short Hair', 'FB_IMG_1657465678323.jpg', 'female', '3 months', 'ny 12', '85,000', 1, NULL, NULL, NULL, NULL),
+(40, 'British Short Hair', '_I8A1891.jpg', 'male', '3 เดือน', 'blue (a)', '55,000', 1, NULL, NULL, NULL, NULL),
+(43, 'British Long Hai', '_I8A1047.jpg', 'female', '14 June 2022', 'ny 11', '50,000', 1, NULL, NULL, NULL, NULL),
+(44, 'British Short Hair', '_I8A1062.jpg', 'male', '14 June 2022', 'ny 11', '70,000', 1, NULL, NULL, NULL, NULL),
+(45, 'British Short Hair', '_I8A1796.jpg', 'male', '24 June 2022', 'ns 11', '55,000', 1, NULL, NULL, NULL, NULL),
+(46, 'British Short Hair', 'FB_IMG_1659444157099.jpg', 'male', '24 June 2022', 'ns 12', '70,000', 1, NULL, NULL, NULL, NULL),
+(47, 'British Short Hair', '_I8A1117.jpg', 'male', '26 June 2022', 'ny 11', '60,000', 1, NULL, NULL, NULL, NULL),
+(48, 'British Short Hair', '_I8A1117.jpg', 'female', '26 June 2022', 'ny 11', '65,000', 1, NULL, NULL, NULL, NULL),
+(49, 'British Short Hair', 'AB52FF8D-AF89-4DD0-9C9A-DD80E9CE1FE2.jpeg', 'male', '10/7/2021', 'ขาวตาส้ม w 62', '95000', 1, NULL, NULL, NULL, NULL),
+(50, 'British Short Hair', '20CE81BA-F21D-4C17-A581-8CA5ED7C106B.jpeg', 'male', '10/7/2021', 'lilac c', '110,000', 1, NULL, NULL, NULL, NULL),
+(51, 'British Short Hair', '_I8A2091.jpg', 'female', '9 May 2022', 'a', '65,000', 1, NULL, NULL, NULL, NULL),
+(52, 'British Short Hair', '_I8A2214.jpg', 'male', '9 May 2022', 'ny 11', '50,000', 1, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -76,7 +87,10 @@ INSERT INTO `parent` (`id`, `name`, `image`, `gender`) VALUES
 (7, 'Junior Champion Neolit Silver Neo', 'sir-10.png', 'male'),
 (8, 'female1', 'nopicture.png', 'female'),
 (9, 'female2', 'nopicture.png', 'female'),
-(10, 'female3', 'nopicture.png', 'female');
+(10, 'female3', 'nopicture.png', 'female'),
+(21, 'Muliebris Safar', 'inbound4137430660897449390.jpg', 'male'),
+(22, 'Grand International Champion Rich Copper Julienne', 'inbound2419624285227750960.jpg', 'male'),
+(23, 'International Champion Victor Vivat Roxera*LT', 'inbound2861448786672915075.jpg', 'male');
 
 -- --------------------------------------------------------
 
@@ -115,7 +129,7 @@ CREATE TABLE `userlist` (
 --
 
 INSERT INTO `userlist` (`id`, `username`, `password`) VALUES
-(1, 'admin', 'admin'),
+(1, 'admin', 'Jindarat1'),
 (2, 'tae208', 'Sandee208');
 
 --
@@ -154,13 +168,13 @@ ALTER TABLE `userlist`
 -- AUTO_INCREMENT for table `catlist`
 --
 ALTER TABLE `catlist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `parent`
 --
 ALTER TABLE `parent`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `tips`
