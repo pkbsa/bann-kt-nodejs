@@ -408,6 +408,10 @@ app.get("/logout", function (request, response) {
     response.end();
 });
 
+app.use(function (req, res, next) {
+    res.status(404).redirect("/");
+});
+
 app.listen(3000, function(){
     console.log("Listening at Port 3000")
   });

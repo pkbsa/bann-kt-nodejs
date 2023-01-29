@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="th">
   <head>
-    <title>Bann K&T Cattery</title>
+    <title>Bann K&T Cattery - ฟาร์มแมวบริติช ช็อตแฮร์</title>
     <meta
       name="google-site-verification"
       content="N194A-GthKR104nribupXpkKuQJQC9YrBZ6PxlvpV44"
     />
+    <meta name="keywords" content="ฟาร์มแมวบริติช, British, ฟาร์มแมว, British Shorthair, Bann K&T">
+    <meta name="description" content="Bann K&T is a cattery located in Thailand. Bann K&T cats are short-haired, mostly British Shorthair cats."/>
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -58,7 +61,9 @@
           <div class="d-flex">
             <div class="row-nav">
               <i class="fa-brands fa-facebook fa-xl"></i>
-              <a href="https://www.facebook.com/bannkat2021">KwanRaweeCat</a>
+              <a href="https://www.facebook.com/bannkat2022">British Bann K&T</a>
+              <i class="fa-brands fa-facebook fa-xl"></i>
+              <a href="https://www.facebook.com/bannkat2021">Bann K&T</a>
               <i class="fa-solid fa-phone"></i>
               <a href="tel:081-919-6931">081 919 6931</a>
             </div>
@@ -71,11 +76,18 @@
       <div class="new-container">
         <div class="text">
           <h1>Bann K&T</h1>
-          <h1 id="cattery">Cattery</h1>
+          <h2 id="cattery">Cattery</h2>
           <h2>British Shorthair</h2>
-          <button onclick="location.href='./cats'">Available Cat</button>
+          <button onclick="location.href='./cats'">แมวที่ว่าง / Available Cat</button>
+          <div class="new-row">
+            <a href="https://www.facebook.com/bannkat2021"><img src="./images/contact/fb2.png" alt="fb"></a>
+            <a href="https://www.instagram.com/bann_kat/"><img src="./images/contact/ig.png" alt="ig"></a>
+            <a href="https://twitter.com/BannKat208?t=Ah0sz60KZBw3gwbqqA1l1Q&s=09"><img src="./images/contact/twitter.png" alt="twitter"></a>
+            <a href="https://www.tiktok.com/@bannkat"><img src="./images/contact/tiktok.png" alt="tiktok"></a>
+            <a href="https://line.me/ti/p/IHPBr5OSsG"><img src="./images/contact/line.png" alt="line"></a>
         </div>
-        <img src="./images/index/logo1.png" height="500vw" />
+        </div>
+        <img src="./images/index/logo1.png" height="500vw" alt="logo" />
       </div>
 
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -96,6 +108,7 @@
                   src="./images/index/aboutus.png"
                   height="200px"
                   width="200px"
+                  alt="aboutus"
                 />
               </a>
             </div>
@@ -108,6 +121,7 @@
                   src="./images/index/search.png"
                   height="200px"
                   width="200px"
+                  alt="search"
                 />
               </a>
             </div>
@@ -120,6 +134,7 @@
                   src="./images/index/father.png"
                   height="200px"
                   width="200px"
+                  alt="parents"
                 />
               </a>
             </div>
@@ -132,6 +147,7 @@
                   src="./images/index/contact.png"
                   height="200px"
                   width="200px"
+                  alt="contact"
                 />
               </a>
             </div>
@@ -158,7 +174,7 @@
     </div>
 
     <div class="container4">
-      <h1>เกร็ดความรู้</h1>
+      <h2>เกร็ดความรู้</h2>
       <div class="accordion" id="accordionPanelsStayOpenExample">
         <% for (var t of tips){ %>
           <div class="accordion-item">
@@ -180,7 +196,7 @@
                 <%- t.text.replace(/\n/g, '<br/>') %>
                 <% if (t.image) { %>
                   <div class="pic">
-                    <img id="pic" src="./images/index/slide/<%=t.image%>">
+                    <img id="pic" src="./images/index/slide/<%=t.image%>" alt="<%=t.id%>">
                   </div>
                 <% } %>
               </div>

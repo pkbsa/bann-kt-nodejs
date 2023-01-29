@@ -98,8 +98,12 @@
                 <div class="inp">
                     <label for="name">Breed :</label><Br />
                     <select name="name" id="name" required>
-                      <option value="British Short Hair">British ShortHair</option>
-                      <option value="British Long Hair">British LongHair</option>
+                      <option value="British Shorthair">British ShortHair</option>
+                      <option value="British Longhair">British LongHair</option>
+                      <option value="Scottish Fold Shorthair">Scottish Fold Shorthair</option>
+                      <option value="Scottish Fold Longhair">Scottish Fold Longhair</option>
+                      <option value="Scottish Straight Shorthair">Scottish Straight Shorthair</option>
+                      <option value="Scottish Straight Longhair">Scottish Straight Longhair</option>
                     </select>
                     <label for="name">DOB :</label><Br />
                     <input type="text" id="age" name="age" required/><Br />
@@ -146,11 +150,7 @@
             <% } %>
             <div class="card-body">
               <h4 class="card-title">
-                <%if (c.name.toLowerCase()==="british short hair") {%>
-                  <B>British Shorthair</B>
-                <% } else { %>
-                  <B>British Longhair</B>
-                <% } %>
+                <B><%=c.name%></B>
                 <% if (c.gender.toLowerCase() === "male") {%>
                 <i class="fa-solid fa-mars male"></i>
                 <% } else { %>
@@ -192,13 +192,12 @@
                     <div> 
                       <label for="name">Breed :</label><Br />
                       <select name="name" id="name">
-                        <%if (c.name.toLowerCase()==="british short hair") {%>
-                          <option value="British Short Hair" selected>British ShortHair</option>
-                          <option value="British Long Hair">British LongHair</option>
-                        <% } else { %>
                           <option value="British Short Hair">British ShortHair</option>
-                          <option value="British Long Hair" selected>British LongHair</option>
-                        <% } %>
+                          <option value="British Long Hair">British LongHair</option>
+                          <option value="Scottish Fold Shorthair">Scottish Fold Shorthair</option>
+                          <option value="Scottish Fold Longhair">Scottish Fold Longhair</option>
+                          <option value="Scottish Straight Shorthair">Scottish Straight Shorthair</option>
+                          <option value="Scottish Straight Longhair">Scottish Straight Longhair</option>
                       </select>
                     </div>
                     <div> 

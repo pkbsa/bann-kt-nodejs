@@ -51,6 +51,7 @@ footer{
 }
 .text #cattery{
     font-size: 4vw;
+    font-weight: 900;
 }
 .text h2{
     font-size: 2vw;
@@ -144,4 +145,22 @@ a{
     height: 70%;
     width: auto;
     object-fit: cover;
+}
+.new-row img{
+    height: 50px;
+    width: 50px;
+    padding-left: 0;
+}
+.new-row{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+.new-row h4{
+    opacity: 0.5;
+}
+.new-row a{
+    margin: 0 20px 0px 20px;
 }
