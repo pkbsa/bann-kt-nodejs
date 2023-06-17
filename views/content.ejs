@@ -2,7 +2,10 @@
 <html>
   <head>
     <title>Bann K&T Cattery - ฟาร์มแมวบริติช ช็อตแฮร์</title>
-    <meta name="keywords" content="ฟาร์มแมวบริติช, British, ฟาร์มแมว, British Shorthair, Bann K&T">
+    <meta
+      name="keywords"
+      content="ฟาร์มแมวบริติช, British, ฟาร์มแมว, British Shorthair, Bann K&T"
+    />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.css"
       rel="stylesheet"
@@ -44,9 +47,7 @@
               <a class="nav-link" href="../">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../aboutus"
-                >About us</a
-              >
+              <a class="nav-link" href="../aboutus">About us</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="../cats">Available Cat</a>
@@ -61,7 +62,9 @@
           <div class="d-flex">
             <div class="row-nav">
               <i class="fa-brands fa-facebook fa-xl"></i>
-              <a href="https://www.facebook.com/bannkat2022">British Bann K&T</a>
+              <a href="https://www.facebook.com/bannkat2022"
+                >British Bann K&T</a
+              >
               <i class="fa-brands fa-facebook fa-xl"></i>
               <a href="https://www.facebook.com/KwanRaweeCat">Bann K&T</a>
               <i class="fa-solid fa-phone"></i>
@@ -111,8 +114,7 @@
               alt="..."
             />
           </div>
-          <% } %>
-          <%if (c.image3) {%>
+          <% } %> <%if (c.image3) {%>
           <div class="carousel-item">
             <img
               src="../images/catlist/<%=c.image3%>"
@@ -121,27 +123,25 @@
               alt="..."
             />
           </div>
+          <% } %> <%if (c.image4) {%>
+          <div class="carousel-item">
+            <img
+              src="../images/catlist/<%=c.image4%>"
+              style="height: 35vw; object-fit: contain"
+              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+          <% } %> <%if (c.image5) {%>
+          <div class="carousel-item">
+            <img
+              src="../images/catlist/<%=c.image5%>"
+              style="height: 35vw; object-fit: contain"
+              class="d-block w-100"
+              alt="..."
+            />
+          </div>
           <% } %>
-          <%if (c.image4) {%>
-            <div class="carousel-item">
-              <img
-                src="../images/catlist/<%=c.image4%>"
-                style="height: 35vw; object-fit: contain"
-                class="d-block w-100"
-                alt="..."
-              />
-            </div>
-            <% } %>
-            <%if (c.image5) {%>
-              <div class="carousel-item">
-                <img
-                  src="../images/catlist/<%=c.image5%>"
-                  style="height: 35vw; object-fit: contain"
-                  class="d-block w-100"
-                  alt="..."
-                />
-              </div>
-              <% } %>
         </div>
         <!-- Slides -->
 
@@ -207,8 +207,7 @@
               class="img-fluid"
             />
           </button>
-          <% } %>
-          <%if (c.image3) {%>
+          <% } %> <%if (c.image3) {%>
           <button
             type="button"
             data-mdb-target="#carouselMDExample"
@@ -227,48 +226,45 @@
               class="img-fluid"
             />
           </button>
+          <% } %> <%if (c.image4) {%>
+          <button
+            type="button"
+            data-mdb-target="#carouselMDExample"
+            data-mdb-slide-to="3"
+            aria-label="Slide 4"
+            style="
+              width: 13vw;
+              height: 100%;
+              max-height: 13vw;
+              object-fit: contain;
+            "
+          >
+            <img
+              class="d-block w-100 shadow-1-strong rounded"
+              src="../images/catlist/<%=c.image4%>"
+              class="img-fluid"
+            />
+          </button>
+          <% } %> <%if (c.image5) {%>
+          <button
+            type="button"
+            data-mdb-target="#carouselMDExample"
+            data-mdb-slide-to="4"
+            aria-label="Slide 5"
+            style="
+              width: 13vw;
+              height: 100%;
+              max-height: 13vw;
+              object-fit: contain;
+            "
+          >
+            <img
+              class="d-block w-100 shadow-1-strong rounded"
+              src="../images/catlist/<%=c.image5%>"
+              class="img-fluid"
+            />
+          </button>
           <% } %>
-          <%if (c.image4) {%>
-            <button
-              type="button"
-              data-mdb-target="#carouselMDExample"
-              data-mdb-slide-to="3"
-              aria-label="Slide 4"
-              style="
-                width: 13vw;
-                height: 100%;
-                max-height: 13vw;
-                object-fit: contain;
-              "
-            >
-              <img
-                class="d-block w-100 shadow-1-strong rounded"
-                src="../images/catlist/<%=c.image4%>"
-                class="img-fluid"
-              />
-            </button>
-            <% } %>
-            <%if (c.image5) {%>
-              <button
-                type="button"
-                data-mdb-target="#carouselMDExample"
-                data-mdb-slide-to="4"
-                aria-label="Slide 5"
-                style="
-                  width: 13vw;
-                  height: 100%;
-                  max-height: 13vw;
-                  object-fit: contain;
-                "
-              >
-                <img
-                  class="d-block w-100 shadow-1-strong rounded"
-                  src="../images/catlist/<%=c.image5%>"
-                  class="img-fluid"
-                />
-              </button>
-              <% } %>
-      
         </div>
         <!-- Thumbnails -->
       </div>
@@ -284,14 +280,14 @@
         <h2>Question?</h2>
         <div class="column">
           <div>
-        <i class="fa-brands fa-facebook fa-xl"></i>
-              <a href="https://www.facebook.com/KwanRaweeCat">KwanRaweeCat</a>
-        </div><div style="margin-top:10px">
-              <i class="fa-solid fa-phone fa-xl"></i>
-              <a href="tel:081-919-6931">081 919 6931</a>
-              </div>
-            </div>
-  
+            <i class="fa-brands fa-facebook fa-xl"></i>
+            <a href="https://www.facebook.com/bannkat2022">Facebook Bann K&T</a>
+          </div>
+          <div style="margin-top: 10px">
+            <i class="fa-solid fa-phone fa-xl"></i>
+            <a href="tel:081-919-6931">081 919 6931</a>
+          </div>
+        </div>
       </div>
     </div>
     <% } %>
